@@ -2,7 +2,7 @@
   "name": "rax-router-redux",
   "version": "5.0.0",
   "description": "Redux bindings for React Router",
-  "repository": "ReactTraining/react-router",
+  "repository": "Lxxyx/react-router",
   "license": "MIT",
   "authors": [
     "Tim Dorr"
