@@ -1,4 +1,4 @@
-import React from "react";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import MemoryRouter from "../MemoryRouter";
@@ -17,7 +17,7 @@ describe("A <MemoryRouter>", () => {
 
     const node = document.createElement("div");
 
-    ReactDOM.render(
+    render(
       <MemoryRouter>
         <ContextChecker />
       </MemoryRouter>,
@@ -33,7 +33,7 @@ describe("A <MemoryRouter>", () => {
 
     spyOn(console, "error");
 
-    ReactDOM.render(<MemoryRouter history={history} />, node);
+    render(<MemoryRouter history={history} />, node);
 
     expect(console.error).toHaveBeenCalledTimes(1);
     expect(console.error).toHaveBeenCalledWith(

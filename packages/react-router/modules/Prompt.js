@@ -1,4 +1,4 @@
-import React from "react";
+import React from "rax";
 import PropTypes from "prop-types";
 import invariant from "invariant";
 

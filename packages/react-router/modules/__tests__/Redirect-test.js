@@ -1,4 +1,4 @@
-import React from "react";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import MemoryRouter from "../MemoryRouter";
 import Redirect from "../Redirect";
@@ -12,7 +12,7 @@ describe("A <Redirect>", () => {
 
       let params;
 
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/users/mjackson/messages/123"]}>
           <Switch>
             <Redirect

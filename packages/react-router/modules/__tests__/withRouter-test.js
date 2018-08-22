@@ -1,4 +1,4 @@
-import React from "react";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import MemoryRouter from "../MemoryRouter";
 import StaticRouter from "../StaticRouter";
@@ -20,7 +20,7 @@ describe("withRouter", () => {
       return null;
     });
 
-    ReactDOM.render(
+    render(
       <MemoryRouter initialEntries={["/bubblegum"]}>
         <Route path="/bubblegum" render={() => <PropsChecker />} />
       </MemoryRouter>,
@@ -35,7 +35,7 @@ describe("withRouter", () => {
       return null;
     });
 
-    ReactDOM.render(
+    render(
       <MemoryRouter initialEntries={["/bubblegum"]}>
         <Route
           path="/:flavor"
@@ -61,7 +61,7 @@ describe("withRouter", () => {
     const WrappedPropChecker = withRouter(PropChecker);
 
     const node = document.createElement("div");
-    ReactDOM.render(
+    render(
       <MemoryRouter initialEntries={["/somepath"]}>
         <Route
           path="/no-match"
@@ -88,7 +88,7 @@ describe("withRouter", () => {
 
       const context = {};
 
-      ReactDOM.render(
+      render(
         <StaticRouter context={context}>
           <Route component={PropsChecker} />
         </StaticRouter>,
@@ -112,7 +112,7 @@ describe("withRouter", () => {
     const Component = withRouter(WrappedComponent);
 
     let ref;
-    ReactDOM.render(
+    render(
       <MemoryRouter initialEntries={["/bubblegum"]}>
         <Route
           path="/bubblegum"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import ReactDOMServer from "react-dom/server";
 import PropTypes from "prop-types";
@@ -74,7 +74,7 @@ describe("A <StaticRouter>", () => {
 
     spyOn(console, "error");
 
-    ReactDOM.render(<StaticRouter context={context} history={history} />, node);
+    render(<StaticRouter context={context} history={history} />, node);
 
     expect(console.error).toHaveBeenCalledTimes(1);
     expect(console.error).toHaveBeenCalledWith(
@@ -249,7 +249,7 @@ describe("A <StaticRouter>", () => {
           />
         );
 
-        ReactDOM.render(
+        render(
           <StaticRouter context={context}>
             <Link to={pathname} />
           </StaticRouter>,
@@ -268,7 +268,7 @@ describe("A <StaticRouter>", () => {
       const node = document.createElement("div");
 
       expect(() => {
-        ReactDOM.render(
+        render(
           <StaticRouter context={context}>
             <Prompt message="this is only a test" />
           </StaticRouter>,

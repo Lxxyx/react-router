@@ -1,4 +1,4 @@
-import React from "react";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Router from "../Router";
@@ -16,7 +16,7 @@ describe("A <Router>", () => {
       spyOn(console, "error");
 
       expect(() => {
-        ReactDOM.render(
+        render(
           <Router history={createHistory()}>
             <p>Foo</p>
             <p>Bar</p>
@@ -30,7 +30,7 @@ describe("A <Router>", () => {
   describe("with exactly one child", () => {
     it("does not throw an error", () => {
       expect(() => {
-        ReactDOM.render(
+        render(
           <Router history={createHistory()}>
             <p>Bar</p>
           </Router>,
@@ -43,7 +43,7 @@ describe("A <Router>", () => {
   describe("with no children", () => {
     it("does not throw an error", () => {
       expect(() => {
-        ReactDOM.render(<Router history={createHistory()} />, node);
+        render(<Router history={createHistory()} />, node);
       }).not.toThrow();
     });
   });
@@ -68,7 +68,7 @@ describe("A <Router>", () => {
 
     it("puts history on context.history", () => {
       const history = createHistory();
-      ReactDOM.render(
+      render(
         <Router history={history}>
           <ContextChecker />
         </Router>,
@@ -83,7 +83,7 @@ describe("A <Router>", () => {
         initialEntries: ["/"]
       });
 
-      ReactDOM.render(
+      render(
         <Router history={history}>
           <ContextChecker />
         </Router>,
@@ -102,7 +102,7 @@ describe("A <Router>", () => {
         initialEntries: ["/"]
       });
 
-      ReactDOM.render(
+      render(
         <Router history={history}>
           <ContextChecker />
         </Router>,
@@ -122,7 +122,7 @@ describe("A <Router>", () => {
         initialEntries: ["/"]
       });
 
-      ReactDOM.render(
+      render(
         <Router history={history}>
           <ContextChecker />
         </Router>,

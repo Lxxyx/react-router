@@ -1,4 +1,4 @@
-import React from "react";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import { createMemoryHistory as createHistory } from "history";
 import Router from "../Router";
@@ -25,7 +25,7 @@ describe("A <Switch>", () => {
       initialEntries: ["/one"]
     });
 
-    ReactDOM.render(
+    render(
       <Router history={history}>
         <Switch>
           <Route path="/one" component={App} />
