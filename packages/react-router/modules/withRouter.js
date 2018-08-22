@@ -1,4 +1,4 @@
-import React from "rax";
+import * as React from "rax";
 import PropTypes from "prop-types";
 import hoistStatics from "hoist-non-react-statics";
 import Route from "./Route";

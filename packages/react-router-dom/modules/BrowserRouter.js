@@ -1,5 +1,5 @@
 import warning from "warning";
-import React from "rax";
+import * as React from "rax";
 import PropTypes from "prop-types";
 import { createBrowserHistory as createHistory } from "history";
 import Router from "./Router";

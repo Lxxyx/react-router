@@ -1,6 +1,6 @@
 import warning from "warning";
 import invariant from "invariant";
-import React from "rax";
+import * as React from "rax";
 import PropTypes from "prop-types";
 import matchPath from "./matchPath";
 
