@@ -1,5 +1,5 @@
 import warning from "warning";
-import React from "react";
+import React from "rax";
 import PropTypes from "prop-types";
 import { createHashHistory as createHistory } from "history";
 import Router from "./Router";

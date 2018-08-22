@@ -1,4 +1,4 @@
-import React from "react";
+import React from "rax";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import BrowserRouter from "../BrowserRouter";

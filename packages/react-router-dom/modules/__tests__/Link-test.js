@@ -1,4 +1,4 @@
-import React from "react";
+import React from "rax";
 import ReactDOM from "react-dom";
 import MemoryRouter from "react-router/MemoryRouter";
 import HashRouter from "../HashRouter";
