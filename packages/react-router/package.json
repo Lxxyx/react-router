@@ -23,7 +23,7 @@
     "withRouter.js",
     "umd"
   ],
-  "main": "index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
   "sideEffects": false,
   "scripts": {
@@ -33,9 +33,6 @@
     "clean": "git clean -fdX .",
     "lint": "eslint modules",
     "test": "jest"
-  },
-  "peerDependencies": {
-    "react": ">=15"
   },
   "dependencies": {
     "history": "^4.7.2",
