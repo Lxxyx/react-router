@@ -67,7 +67,7 @@
     "jest": "^23.1.0",
     "pretty-bytes": "^5.0.0",
     "raf": "^3.4.0",
-    "rax": "^0.6.4",
+    "rax": "latest",
     "react": "^16.4.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.4.0",
