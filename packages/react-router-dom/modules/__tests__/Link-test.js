@@ -1,4 +1,4 @@
-import React from "rax";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import MemoryRouter from "react-router/MemoryRouter";
 import HashRouter from "../HashRouter";
@@ -13,7 +13,7 @@ describe("A <Link>", () => {
     };
     const node = document.createElement("div");
 
-    ReactDOM.render(
+    render(
       <MemoryRouter>
         <Link to={location}>link</Link>
       </MemoryRouter>,
@@ -29,7 +29,7 @@ describe("A <Link>", () => {
     it("resolves to with no pathname using current location", () => {
       const node = document.createElement("div");
 
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/somewhere"]}>
           <Link to="?rendersWithPathname=true">link</Link>
         </MemoryRouter>,
@@ -48,7 +48,7 @@ describe("A <Link>", () => {
     spyOn(console, "error");
 
     expect(() => {
-      ReactDOM.render(<Link to="/">link</Link>, node);
+      render(<Link to="/">link</Link>, node);
     }).toThrow(/You should not use <Link> outside a <Router>/);
 
     expect(console.error.calls.count()).toBe(3);
@@ -63,7 +63,7 @@ describe("A <Link>", () => {
     spyOn(console, "error");
 
     expect(() => {
-      ReactDOM.render(
+      render(
         <MemoryRouter>
           <Link>link</Link>
         </MemoryRouter>,
@@ -85,7 +85,7 @@ describe("A <Link>", () => {
       done();
     };
 
-    ReactDOM.render(
+    render(
       <MemoryRouter>
         <Link to="/" innerRef={refCallback}>
           link
@@ -105,7 +105,7 @@ describe("A <Link> underneath a <HashRouter>", () => {
   });
 
   const createLinkNode = (hashType, to) => {
-    ReactDOM.render(
+    render(
       <HashRouter hashType={hashType}>
         <Link to={to} />
       </HashRouter>,

@@ -1,4 +1,4 @@
-import React from "rax";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import BrowserRouter from "../BrowserRouter";
@@ -17,7 +17,7 @@ describe("A <BrowserRouter>", () => {
 
     const node = document.createElement("div");
 
-    ReactDOM.render(
+    render(
       <BrowserRouter>
         <ContextChecker />
       </BrowserRouter>,
@@ -33,7 +33,7 @@ describe("A <BrowserRouter>", () => {
 
     spyOn(console, "error");
 
-    ReactDOM.render(<BrowserRouter history={history} />, node);
+    render(<BrowserRouter history={history} />, node);
 
     expect(console.error).toHaveBeenCalledTimes(1);
     expect(console.error).toHaveBeenCalledWith(

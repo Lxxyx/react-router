@@ -1,4 +1,4 @@
-import React from "rax";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import MemoryRouter from "react-router/MemoryRouter";
 import NavLink from "../NavLink";
@@ -13,7 +13,7 @@ describe("NavLink", () => {
 
   describe("When a <NavLink> is active", () => {
     it("applies its default activeClassName", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza">Pizza!</NavLink>
         </MemoryRouter>,
@@ -24,7 +24,7 @@ describe("NavLink", () => {
     });
 
     it("applies its passed activeClassName", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza" activeClassName="selected">
             Pizza!
@@ -41,7 +41,7 @@ describe("NavLink", () => {
       const defaultStyle = { color: "black" };
       const activeStyle = { color: "red" };
 
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza" style={defaultStyle} activeStyle={activeStyle}>
             Pizza!
@@ -54,7 +54,7 @@ describe("NavLink", () => {
     });
 
     it("applies aria-current of page if no override value is given", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza" activeClassName="selected">
             Pizza!
@@ -67,7 +67,7 @@ describe("NavLink", () => {
     });
 
     it("applies the override aria-current value when given", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza" activeClassName="selected" aria-current="true">
             Pizza!
@@ -81,7 +81,7 @@ describe("NavLink", () => {
 
     it("handles locations without a pathname", () => {
       expect(() => {
-        ReactDOM.render(
+        render(
           <MemoryRouter initialEntries={["/pizza"]}>
             <NavLink to={{ search: "foo=bar" }}>Pizza!</NavLink>
           </MemoryRouter>,
@@ -91,7 +91,7 @@ describe("NavLink", () => {
     });
 
     it("it properly escapes path-to-regexp special characters", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza (1)"]}>
           <NavLink to="/pizza (1)">Pizza!</NavLink>
         </MemoryRouter>,
@@ -113,7 +113,7 @@ describe("NavLink", () => {
       const Component = withRouter(WrappedComponent);
 
       let ref;
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza">
             <Component wrappedComponentRef={r => (ref = r)} />
@@ -128,7 +128,7 @@ describe("NavLink", () => {
 
   describe("When a <NavLink> is not active", () => {
     it("does not apply its default activeClassName", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/salad">Salad?</NavLink>
         </MemoryRouter>,
@@ -139,7 +139,7 @@ describe("NavLink", () => {
     });
 
     it("does not apply its passed activeClassName", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/salad" activeClassName="selected">
             Salad?
@@ -156,7 +156,7 @@ describe("NavLink", () => {
       const defaultStyle = { color: "black" };
       const activeStyle = { color: "red" };
 
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/salad" style={defaultStyle} activeStyle={activeStyle}>
             Salad?
@@ -169,7 +169,7 @@ describe("NavLink", () => {
     });
 
     it("does not apply an aria-current value if no override value is given", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/salad" activeClassName="selected" aria-current="page">
             Pizza!
@@ -182,7 +182,7 @@ describe("NavLink", () => {
     });
 
     it("does not apply an aria-current value if an override value is given", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/salad" activeClassName="selected">
             Pizza!
@@ -203,7 +203,7 @@ describe("NavLink", () => {
       const Component = withRouter(WrappedComponent);
 
       let ref;
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink exact to="/salad">
             <Component wrappedComponentRef={r => (ref = r)} />
@@ -218,7 +218,7 @@ describe("NavLink", () => {
 
   describe("isActive", () => {
     it("applies active default props when isActive returns true", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza" isActive={() => true}>
             Pizza!
@@ -231,7 +231,7 @@ describe("NavLink", () => {
     });
 
     it("applies active passed props when isActive returns true", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza" activeClassName="selected" isActive={() => true}>
             Pizza!
@@ -245,7 +245,7 @@ describe("NavLink", () => {
     });
 
     it("does not apply active default props when isActive returns false", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to="/pizza" isActive={() => false}>
             Pizza!
@@ -258,7 +258,7 @@ describe("NavLink", () => {
     });
 
     it("does not apply active passed props when isActive returns false", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink
             to="/pizza"
@@ -278,7 +278,7 @@ describe("NavLink", () => {
 
   describe("exact", () => {
     it("does not do exact matching by default", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza/anchovies"]}>
           <NavLink to="/pizza" activeClassName="active">
             Pizza!
@@ -291,7 +291,7 @@ describe("NavLink", () => {
     });
 
     it("sets active default value only for exact matches", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink exact to="/pizza">
             Pizza!
@@ -304,7 +304,7 @@ describe("NavLink", () => {
     });
 
     it("sets active passed value only for exact matches", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink exact to="/pizza" activeClassName="selected">
             Pizza!
@@ -318,7 +318,7 @@ describe("NavLink", () => {
     });
 
     it("does not set active default value for partial matches", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza/anchovies"]}>
           <NavLink exact to="/pizza">
             Pizza!
@@ -331,7 +331,7 @@ describe("NavLink", () => {
     });
 
     it("does not set active passed value for partial matches", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza/anchovies"]}>
           <NavLink exact to="/pizza" activeClassName="selected">
             Pizza!
@@ -348,7 +348,7 @@ describe("NavLink", () => {
   describe("strict (enforce path's trailing slash)", () => {
     const PATH = "/pizza/";
     it("does not do strict matching by default", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink to={PATH}>Pizza!</NavLink>
         </MemoryRouter>,
@@ -359,7 +359,7 @@ describe("NavLink", () => {
     });
 
     it("does not set active default value when location.pathname has no trailing slash", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink strict to={PATH}>
             Pizza!
@@ -372,7 +372,7 @@ describe("NavLink", () => {
     });
 
     it("does not set active passed value when location.pathname has no trailing slash", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink strict to={PATH} activeClassName="selected">
             Pizza!
@@ -386,7 +386,7 @@ describe("NavLink", () => {
     });
 
     it("sets active default value when pathname has trailing slash", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza/"]}>
           <NavLink strict to={PATH}>
             Pizza!
@@ -399,7 +399,7 @@ describe("NavLink", () => {
     });
 
     it("sets active passed value when pathname has trailing slash", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza/"]}>
           <NavLink strict to={PATH} activeClassName="selected">
             Pizza!
@@ -415,7 +415,7 @@ describe("NavLink", () => {
 
   describe("location property", () => {
     it("overrides the current location", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pizza"]}>
           <NavLink
             to="/pasta"
@@ -433,7 +433,7 @@ describe("NavLink", () => {
     });
 
     it("is not overwritten by the current location", () => {
-      ReactDOM.render(
+      render(
         <MemoryRouter initialEntries={["/pasta"]}>
           <NavLink
             to="/pasta"

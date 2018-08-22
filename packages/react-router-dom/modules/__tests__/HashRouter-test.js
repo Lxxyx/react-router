@@ -1,4 +1,4 @@
-import React from "rax";
+import React, { render } from "rax";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import HashRouter from "../HashRouter";
@@ -17,7 +17,7 @@ describe("A <HashRouter>", () => {
 
     const node = document.createElement("div");
 
-    ReactDOM.render(
+    render(
       <HashRouter>
         <ContextChecker />
       </HashRouter>,
@@ -33,7 +33,7 @@ describe("A <HashRouter>", () => {
 
     spyOn(console, "error");
 
-    ReactDOM.render(<HashRouter history={history} />, node);
+    render(<HashRouter history={history} />, node);
 
     expect(console.error).toHaveBeenCalledTimes(1);
     expect(console.error).toHaveBeenCalledWith(
