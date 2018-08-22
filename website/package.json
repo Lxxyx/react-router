@@ -28,6 +28,7 @@
     "markdown-it-anchor": "^3.0.0",
     "postcss-loader": "^2.1.5",
     "prismjs": "^1.8.4",
+    "rax": "^0.6.4",
     "style-loader": "^0.19.0",
     "sw-precache": "^4.2.2",
     "sw-precache-webpack-plugin": "^0.7.2",
