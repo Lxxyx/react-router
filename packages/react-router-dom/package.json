@@ -27,7 +27,7 @@
     "withRouter.js",
     "umd"
   ],
-  "main": "es/index.js",
+  "main": "index.js",
   "module": "es/index.js",
   "sideEffects": false,
   "scripts": {
