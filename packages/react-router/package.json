@@ -35,6 +35,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/react-router": "^4.0.30",
     "history": "^4.7.2",
     "hoist-non-react-statics": "^2.5.0",
     "invariant": "^2.2.4",
@@ -89,5 +90,6 @@
     "routing",
     "history",
     "link"
-  ]
+  ],
+  "typings": "./typings/index.d.ts"
 }
