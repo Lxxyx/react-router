@@ -1,6 +1,6 @@
 {
   "name": "rax-router",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "description": "Declarative routing for React",
   "repository": "ReactTraining/react-router",
   "license": "MIT",

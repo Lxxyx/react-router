@@ -52,5 +52,6 @@
     "react-transition-group": "^2.2.1",
     "resolve-pathname": "^2.2.0",
     "slug": "^0.9.1"
-  }
+  },
+  "version": null
 }
