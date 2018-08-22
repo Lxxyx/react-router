@@ -1,6 +1,6 @@
 {
   "name": "rax-router-dom",
-  "version": "4.3.5",
+  "version": "4.3.6",
   "description": "DOM bindings for React Router",
   "repository": "Lxxyx/react-router",
   "license": "MIT",
