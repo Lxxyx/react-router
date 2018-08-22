@@ -1,6 +1,6 @@
 {
   "name": "rax-router-redux",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Redux bindings for React Router",
   "repository": "Lxxyx/react-router",
   "license": "MIT",
